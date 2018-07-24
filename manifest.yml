@@ -1,0 +1,9 @@
+---
+name: Test pipeline with a lot of options
+category: Interactive Apps
+subcategory: Servers
+role: batch_connect
+description: |
+  This app demonstrates a form with many inputs on the [OARC cluster].
+
+  [OARC cluster]: https://rutgers-oarc.github.io/amarel/

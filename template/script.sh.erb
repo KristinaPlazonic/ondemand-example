@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# Load the required environment
+setup_env () {
+  module purge
+  module use /projects/community/modulefiles
+  module load nextflow/0.30.2-bd387
+}
+setup_env
+
+module avail
+
+## go to working directory
+cd <%= context.workdir %>
+umask 077
+echo cd <%= context.workdir %>
+
+## execute the script
+./test_script.sh <%= context.args %>
+sleep 300
+
+echo "this is final output" 
+

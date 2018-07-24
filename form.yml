@@ -1,0 +1,76 @@
+---
+cluster: "amarel"
+form:
+  - bc_num_hours
+  - num_cores
+  - bc_email_on_started
+  - email
+  - single_or_paired
+  - workdir
+  - output_path
+  - error_path
+  - job_name
+  - queue_name
+  - args
+  - native
+attributes:
+  bc_num_hours:
+    widget: "number_field"
+    label: "Number of hours"
+    value: 1
+    min: 1
+    max: 72
+    step: 1
+    help: |
+      Maximum number of hours that your job will be allowed to run
+  num_cores:
+    widget: "number_field"
+    label: "Number of cores"
+    value: 1
+    help: |
+      Number of cores. 
+    min: 1
+    max: 28
+    step: 1
+  email:
+    label: "Your email"
+    value: "kp807@rutgers.edu"
+    help: |
+      Use email like netid@rutgers.edu, not netid@oarc.rutgers.edu, it won't know who to send email otherwise. 
+  single_or_paired:
+    widget: select
+    label: "single-end reads or paired end reads"
+    options:
+      - ["single-end", "single-end"]
+      - ["paired-end", "paired-end"]
+  workdir:
+    widget: "text_field"
+    value: "/home/kp807/"
+    label: "Slurm working directory"
+  output_path:
+    widget: "text_field"
+    value: "/home/kp807/slurm.%N.out"
+    label: "Slurm output_dir  ---output"
+  error_path:
+    widget: "text_field"
+    value: "/home/kp807/slurm.%N.err"
+    label: "Slurm error_dir  --error"
+  job_name:
+    widget: "text_field"
+    label: "Slurm job name"
+    value: "ondemand RNAseq"
+  queue_name:
+    widget: select
+    label: "which queue do you want to submit job to"
+    options:
+      - ["main", "main"]
+      - ["p_kongt_1", "p_kongt_1"]
+  args:
+    widget: "text_field"
+    label: "arguments to pass to your script"
+    value: "10"
+  native:
+    widget: "text_field"
+    label: "Slurm specific options"
+    help: |
+      Slurm specific options to pass to the job, e.g. -N 1 -C broadwell
